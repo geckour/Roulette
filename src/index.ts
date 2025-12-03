@@ -1,5 +1,5 @@
 let currentRadians = 0
-let currentSpeed = 0.01
+let currentSpeed = 0.5
 let stopRoulette = false;
 
 addKeyInputBox();
@@ -11,7 +11,7 @@ function main() {
     const context = canvas?.getContext('2d');
 
     if (context) {
-        context.clearRect(0, 0, 400, 400);
+        context.clearRect(0, 0, 800, 800);
         drawParts(context);
         applyInputBoxLabelColor();
         drawFrame(context);
@@ -25,10 +25,10 @@ function main() {
 
 function drawNeedle(context: CanvasRenderingContext2D) {
     context.beginPath();
-    context.moveTo(200, 100);
-    context.lineTo(195, 20);
-    context.lineTo(205, 20);
-    context.lineTo(200, 100);
+    context.moveTo(400, 200);
+    context.lineTo(390, 40);
+    context.lineTo(410, 40);
+    context.lineTo(400, 200);
     context.closePath();
     context.fillStyle = 'grey';
     context.strokeStyle = 'black';
@@ -38,7 +38,7 @@ function drawNeedle(context: CanvasRenderingContext2D) {
 
 function drawFrame(context: CanvasRenderingContext2D) {
     context.beginPath();
-    context.arc(200, 200, 150, 0, 2 * Math.PI);
+    context.arc(400, 400, 300, 0, 2 * Math.PI);
     context.closePath();
     context.strokeStyle = 'black';
     context.stroke();
@@ -54,15 +54,15 @@ function drawParts(context: CanvasRenderingContext2D) {
 
 function drawPart(context: CanvasRenderingContext2D, index: number, total: number) {
     context.beginPath();
-    context.moveTo(200, 200);
+    context.moveTo(400, 400);
     context.arc(
-        200,
-        200,
-        150,
+        400,
+        400,
+        300,
         currentRadians + 2 * Math.PI * (-0.25 + (index - 0.5) / total),
         currentRadians + 2 * Math.PI * (-0.25 + (index + 0.5) / total)
     );
-    context.lineTo(200, 200);
+    context.lineTo(400, 400);
     context.closePath();
     context.fill();
 }
@@ -88,8 +88,8 @@ function addKeyInputBox() {
     const label = document.createElement('div');
     label.className = 'input-box-label';
     label.id = `input-box-label-${rowCount}`;
-    label.style.height = '20px';
-    label.style.width = '20px';
+    label.style.height = '32px';
+    label.style.width = '32px';
     row.appendChild(label);
     const inputBox = document.createElement('input');
     inputBox.type = 'text';
@@ -98,7 +98,7 @@ function addKeyInputBox() {
     row.appendChild(inputBox);
     const deleteButton = document.createElement('button');
     deleteButton.className = 'delete-button';
-    deleteButton.innerText = 'x';
+    deleteButton.innerText = '×';
     deleteButton.onclick = () => row.remove();
     row.appendChild(deleteButton);
     const plusButton = document.createElement('button');

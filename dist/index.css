@@ -9,10 +9,23 @@ body {
     gap: 8px;
 }
 
-.roulette {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+span {
+    font-size: 24px;
+}
+
+button {
+    font-size: 24px;
+}
+
+input {
+    font-size: 24px;
+    padding: 4px;
+    width: 720px;
+}
+
+.delete-button, .plus-button {
+    width: 32px;
+    height: 32px;
 }
 
 .result {
@@ -20,11 +33,12 @@ body {
     flex-direction: row;
     align-items: center;
     gap: 4px;
+    margin-top: 32px;
 }
 
 .result-color {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
 }
 
 .input-box-container {
@@ -37,5 +51,6 @@ body {
 .input-box-row {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 4px;
 }
