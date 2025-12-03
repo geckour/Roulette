@@ -1,5 +1,5 @@
 let currentRadians = 0
-let currentSpeed = 0.5
+let currentSpeed = 0.01
 let stopRoulette = false;
 
 addKeyInputBox();
@@ -136,6 +136,6 @@ function getColor(index: number, total: number) {
 
 function targetIndex() {
     const total = document.getElementsByClassName('input-box-row').length;
-    const radians = (currentRadians - (0.25 + 0.5 / total) * Math.PI) % (2 * Math.PI);
-    return total - 1 - Math.floor((radians / (2 * Math.PI)) * total);
+    const radians = (currentRadians - (0.5 / total) * 2 * Math.PI) % (2 * Math.PI);
+    return total - 1 - Math.floor(total * radians / (2 * Math.PI));
 }
