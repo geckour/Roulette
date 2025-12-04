@@ -1,9 +1,16 @@
-let currentRadians = 0
-let currentSpeed = 0.5
+let currentRadians = 0;
+let currentSpeed = 0.5;
 let stopRoulette = false;
 
 addKeyInputBox();
-(document.getElementsByClassName('stop-button')[0] as HTMLButtonElement | null)?.addEventListener('click', () => stopRoulette = true);
+const stopButton = document.getElementsByClassName('stop-button')[0] as HTMLButtonElement | null;
+stopButton?.addEventListener('click', () => {
+    stopRoulette = !stopRoulette;
+    if (!stopRoulette) {
+        currentSpeed = 0.5;
+    }
+    stopButton!.innerText = stopRoulette ? 'Restart' : 'Stop'
+});
 main();
 
 function main() {

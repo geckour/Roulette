@@ -1,10 +1,16 @@
 "use strict";
-var _a;
 let currentRadians = 0;
 let currentSpeed = 0.5;
 let stopRoulette = false;
 addKeyInputBox();
-(_a = document.getElementsByClassName('stop-button')[0]) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => stopRoulette = true);
+const stopButton = document.getElementsByClassName('stop-button')[0];
+stopButton === null || stopButton === void 0 ? void 0 : stopButton.addEventListener('click', () => {
+    stopRoulette = !stopRoulette;
+    if (!stopRoulette) {
+        currentSpeed = 0.5;
+    }
+    stopButton.innerText = stopRoulette ? 'Restart' : 'Stop';
+});
 main();
 function main() {
     const canvas = document.getElementsByClassName('main-canvas')[0];
